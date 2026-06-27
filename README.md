@@ -6,6 +6,7 @@ Personal agent skills.
 
 | Skill | Description |
 |-------|-------------|
+| [issue-handler](./issue-handler/) | Generic issue-to-PR workflow with plan comments and agent/model attribution |
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
 
@@ -19,6 +20,20 @@ For `pr-review`:
 mkdir -p ~/.agents/skills
 git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
 cp -R /tmp/my-skills/pr-review ~/.agents/skills/
+```
+
+For `issue-handler`:
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+cp -R /tmp/my-skills/issue-handler ~/.agents/skills/
+mkdir -p ~/.codex/skills ~/.gemini/skills ~/.grok/skills ~/.reasonix/skills ~/.claude/skills
+ln -s ~/.agents/skills/issue-handler ~/.codex/skills/issue-handler
+ln -s ~/.agents/skills/issue-handler ~/.gemini/skills/issue-handler
+ln -s ~/.agents/skills/issue-handler ~/.grok/skills/issue-handler
+ln -s ~/.agents/skills/issue-handler ~/.reasonix/skills/issue-handler
+ln -s ~/.agents/skills/issue-handler ~/.claude/skills/issue-handler
 ```
 
 For `x-com-post`:
