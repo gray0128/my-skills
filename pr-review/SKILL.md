@@ -81,10 +81,9 @@ GitHub Review Event: <APPROVE|REQUEST_CHANGES|COMMENT|not_published>
 - <risk or None>
 
 ---
-Agent: <agent identity> · Role: pr_reviewer · Model: <model or unknown>
+Reviewer: <reviewer identity> · Model: <model or unknown>
 
-<!-- agent-orchestrator:v1
-role: pr_reviewer
+<!-- pr-review-skill:v1
 pr: <pr_number>
 verdict: <verdict>
 head_sha: <sha>
@@ -92,7 +91,7 @@ github_event: <APPROVE|REQUEST_CHANGES|COMMENT|not_published>
 -->
 ```
 
-For the Orchestrator, the visible attribution footer immediately precedes the required artifact marker. It must name both the actual agent identity and the current model; use `unknown` rather than guessing.
+The footer is a skill-level review artifact, not a project-specific agent role declaration. It must identify the actual reviewer identity and current model; use `unknown` rather than guessing.
 
 Submit the review with the API when publishing. Set `event` to the final publishable event; for same-author approval-equivalent reviews, this must be `COMMENT`.
 
