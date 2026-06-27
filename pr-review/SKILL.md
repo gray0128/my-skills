@@ -81,7 +81,7 @@ GitHub Review Event: <APPROVE|REQUEST_CHANGES|COMMENT|not_published>
 - <risk or None>
 
 ---
-Reviewer: <reviewer identity> · Model: <model or unknown>
+Agent: <coding agent identity> · Model: <model or unknown>
 
 <!-- pr-review-skill:v1
 pr: <pr_number>
@@ -91,7 +91,7 @@ github_event: <APPROVE|REQUEST_CHANGES|COMMENT|not_published>
 -->
 ```
 
-The footer is a skill-level review artifact, not a project-specific agent role declaration. It must identify the actual reviewer identity and current model; use `unknown` rather than guessing.
+The footer is a skill-level review artifact, not a project-specific agent role declaration. It must identify the actual coding agent that performed the review, such as `codex desktop`, and the current model, such as `GPT-5.5`; use `unknown` rather than guessing.
 
 Submit the review with the API when publishing. Set `event` to the final publishable event; for same-author approval-equivalent reviews, this must be `COMMENT`.
 
