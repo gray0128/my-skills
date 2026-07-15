@@ -11,17 +11,14 @@ Personal agent skills.
 | [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
-| [contract-first-dev-loop](./contract-first-dev-loop/) | Combined contract-first, docs-driven development and governance loop |
 | [issue-handler](./issue-handler/) | Generic issue-to-PR workflow with plan comments and agent/model attribution |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
 
-## Evolution of the contract-first skills
+## Contract-governance skills
 
-`contract-first-dev-loop` is the original all-in-one skill. It combines two responsibilities in one workflow: installing or formalizing project governance and executing the next tracked development slice.
-
-The other three skills are an iterative upgrade that separates this broad workflow by user intent and mutation boundary:
+The contract-governance suite separates workflows by user intent and mutation boundary:
 
 | Skill | Role in the upgraded model | Repository changes |
 |-------|----------------------------|--------------------|
@@ -29,11 +26,10 @@ The other three skills are an iterative upgrade that separates this broad workfl
 | `bootstrap-contract-governance` | Install, migrate, or repair the smallest useful governance control surface | Governance artifacts only |
 | `contract-first-delivery-loop` | Deliver one tracked implementation outcome under an existing governance system | In-scope product, contract, test, and tracker changes |
 
-This is a specialization, not a mandatory three-step pipeline. A common adoption path is **audit → bootstrap → delivery**, but each skill can be invoked independently when its preconditions already hold.
+The suite is not a mandatory three-step pipeline. A common adoption path is **audit → bootstrap → delivery**, but each skill can be invoked independently when its preconditions already hold.
 
-- Keep using `contract-first-dev-loop` when a compact, general-purpose entry point is more useful than strict mode separation.
-- Prefer the upgraded skills when you need clearer scope, smaller working context, explicit write authority, or safer automation.
 - Use `audit-contract-governance` for diagnosis only; move to `bootstrap-contract-governance` explicitly if the reported gaps should be fixed.
+- Use `bootstrap-contract-governance` to establish or repair authoritative governance artifacts without implementing product features.
 - Use `contract-first-delivery-loop` only after authoritative contracts and work tracking already exist.
 
 ## Install
@@ -68,7 +64,6 @@ For the contract-governance suite:
 mkdir -p ~/.agents/skills
 git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
 for skill in \
-  contract-first-dev-loop \
   contract-first-delivery-loop \
   bootstrap-contract-governance \
   audit-contract-governance

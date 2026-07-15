@@ -11,17 +11,14 @@
 | [audit-contract-governance](./audit-contract-governance/) | 对仓库的契约治理体系执行只读、基于证据的审计 |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | 在现有仓库中安装或迁移最小化契约治理体系 |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
-| [contract-first-dev-loop](./contract-first-dev-loop/) | 契约优先、文档驱动的开发与治理一体化闭环 |
 | [issue-handler](./issue-handler/) | 通用的 Issue 到 PR 工作流，包含方案评论及 Agent/模型署名 |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
 | [pr-review](./pr-review/) | 基于证据的 GitHub PR 评审工作流，绑定当前 HEAD SHA |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
 
-## 契约优先 skills 的迭代关系
+## 契约治理 skills
 
-`contract-first-dev-loop` 是最初的一体化 skill，在一个工作流中同时承担两类职责：安装或规范化项目治理体系，以及执行下一个已跟踪的开发切片。
-
-其余三个 skill 是在此基础上的迭代升级，按照用户意图和修改权限边界拆分原有宽泛工作流：
+契约治理 skill 套件按照用户意图和修改权限边界拆分工作流：
 
 | Skill | 在升级模型中的职责 | 对仓库的修改范围 |
 |-------|--------------------|------------------|
@@ -29,11 +26,10 @@
 | `bootstrap-contract-governance` | 安装、迁移或修复最小可用的治理控制面 | 仅治理制品 |
 | `contract-first-delivery-loop` | 在既有治理体系下交付一个已跟踪的实现成果 | 范围内的产品代码、契约、测试和跟踪器变更 |
 
-这种升级是职责专业化，并不要求每次都依次运行三个 skill。常见的采用路径是 **审计 → 治理引导 → 交付**，但只要前置条件已经满足，每个 skill 都可以独立调用。
+该套件并不要求每次都依次运行三个 skill。常见的采用路径是 **审计 → 治理引导 → 交付**，但只要前置条件已经满足，每个 skill 都可以独立调用。
 
-- 当紧凑、通用的统一入口比严格的模式分离更重要时，可以继续使用 `contract-first-dev-loop`。
-- 需要更清晰的范围、更小的工作上下文、明确的写入权限或更安全的自动化时，优先使用升级后的三个 skill。
 - `audit-contract-governance` 只负责诊断；若要修复审计发现的缺口，应明确切换到 `bootstrap-contract-governance`。
+- 使用 `bootstrap-contract-governance` 建立或修复权威治理制品，不在其中实现产品功能。
 - 只有在权威契约和工作跟踪已经存在时，才使用 `contract-first-delivery-loop`。
 
 ## 安装
@@ -68,7 +64,6 @@ ln -s ~/.agents/skills/issue-handler ~/.claude/skills/issue-handler
 mkdir -p ~/.agents/skills
 git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
 for skill in \
-  contract-first-dev-loop \
   contract-first-delivery-loop \
   bootstrap-contract-governance \
   audit-contract-governance
