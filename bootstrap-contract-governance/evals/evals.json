@@ -1,0 +1,35 @@
+{
+  "skill_name": "bootstrap-contract-governance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use $bootstrap-contract-governance to add the lightest useful governance loop to this small repository, which currently has only AGENTS.md, README.md, tests, and three open issues.",
+      "expected_output": "Preserves the live issue tracker, adds only compact authority and validation pointers, seeds them with real repository facts, avoids a large fixed docs hierarchy, and does not run product tests solely to prove a documented command exists."
+    },
+    {
+      "id": 2,
+      "prompt": "Use $bootstrap-contract-governance to formalize governance in a service that already treats openapi.yaml as canonical and GitHub Issues as the work queue.",
+      "expected_output": "Declares the existing OpenAPI and Issue authorities, adds missing completion and compatibility rules, and does not create duplicate API contracts or tasks.md."
+    },
+    {
+      "id": 3,
+      "prompt": "Use $bootstrap-contract-governance to migrate this repository. Two documents both claim to be the canonical task tracker and disagree about the next task.",
+      "expected_output": "Identifies the authority conflict and requests an ownership decision instead of selecting by recency or creating a third tracker."
+    },
+    {
+      "id": 4,
+      "prompt": "Use $bootstrap-contract-governance for a local library with no HTTP API, CLI, deployment, or production service.",
+      "expected_output": "Builds a contract and validation map around the library's actual public interfaces and tests without adding API-design, deployment, runtime, or security programs."
+    },
+    {
+      "id": 5,
+      "prompt": "Use $bootstrap-contract-governance in a monorepo with root AGENTS.md and package-specific overrides.",
+      "expected_output": "Preserves instruction layering, puts shared controls at the appropriate common scope, and avoids flattening package-specific verification rules."
+    },
+    {
+      "id": 6,
+      "prompt": "Use $bootstrap-contract-governance to establish the method, but do not implement any of the currently tracked product tasks.",
+      "expected_output": "Changes only governance artifacts, validates the installed controls, reports the first identifiable task, and explicitly confirms product implementation was not started."
+    }
+  ]
+}

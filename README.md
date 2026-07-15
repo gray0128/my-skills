@@ -6,6 +6,10 @@ Personal agent skills.
 
 | Skill | Description |
 |-------|-------------|
+| [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
+| [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
+| [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
+| [contract-first-dev-loop](./contract-first-dev-loop/) | Combined contract-first, docs-driven development and governance loop |
 | [issue-handler](./issue-handler/) | Generic issue-to-PR workflow with plan comments and agent/model attribution |
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
@@ -34,6 +38,21 @@ ln -s ~/.agents/skills/issue-handler ~/.gemini/skills/issue-handler
 ln -s ~/.agents/skills/issue-handler ~/.grok/skills/issue-handler
 ln -s ~/.agents/skills/issue-handler ~/.reasonix/skills/issue-handler
 ln -s ~/.agents/skills/issue-handler ~/.claude/skills/issue-handler
+```
+
+For the contract-governance suite:
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+for skill in \
+  contract-first-dev-loop \
+  contract-first-delivery-loop \
+  bootstrap-contract-governance \
+  audit-contract-governance
+do
+  cp -R "/tmp/my-skills/$skill" ~/.agents/skills/
+done
 ```
 
 For `x-com-post`:

@@ -1,0 +1,26 @@
+{
+  "skill_name": "audit-contract-governance",
+  "policy": "explicit-invocation-only",
+  "queries": [
+    {"query": "Use $audit-contract-governance to audit this repository read-only.", "should_trigger": true},
+    {"query": "Run $audit-contract-governance and report governance gaps.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance to inspect contract authority conflicts.", "should_trigger": true},
+    {"query": "Apply $audit-contract-governance without changing files.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance to assess executable contract maturity.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance to compare trackers and canonical sources.", "should_trigger": true},
+    {"query": "With $audit-contract-governance, produce prioritized findings.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance on this monorepo module.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance to inspect verification gates.", "should_trigger": true},
+    {"query": "Use $audit-contract-governance and cite exact evidence.", "should_trigger": true},
+    {"query": "Install contract governance in this repository.", "should_trigger": false},
+    {"query": "Continue the next tracked task.", "should_trigger": false},
+    {"query": "Fix all governance gaps now.", "should_trigger": false},
+    {"query": "Review this PR for code defects.", "should_trigger": false},
+    {"query": "Create an OpenAPI schema.", "should_trigger": false},
+    {"query": "Deploy the service and monitor it.", "should_trigger": false},
+    {"query": "Threat-model the payment flow.", "should_trigger": false},
+    {"query": "Explain what contract-first means.", "should_trigger": false},
+    {"query": "Update tasks.md after running tests.", "should_trigger": false},
+    {"query": "Refactor the repository architecture.", "should_trigger": false}
+  ]
+}

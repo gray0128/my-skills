@@ -1,0 +1,26 @@
+{
+  "skill_name": "contract-first-delivery-loop",
+  "policy": "explicit-invocation-only",
+  "queries": [
+    {"query": "Use $contract-first-delivery-loop to continue the next tracked contract task.", "should_trigger": true},
+    {"query": "Use $contract-first-delivery-loop to implement issue T-42 against the canonical OpenAPI contract.", "should_trigger": true},
+    {"query": "Run $contract-first-delivery-loop for the next unblocked migration slice.", "should_trigger": true},
+    {"query": "Apply $contract-first-delivery-loop to finish this tracked CLI contract change.", "should_trigger": true},
+    {"query": "Use $contract-first-delivery-loop and keep the current API consumers compatible.", "should_trigger": true},
+    {"query": "Use $contract-first-delivery-loop to reconcile the tracked task after implementing and validating it.", "should_trigger": true},
+    {"query": "With $contract-first-delivery-loop, deliver the next state-machine task.", "should_trigger": true},
+    {"query": "Use $contract-first-delivery-loop for this tracked internal-interface change.", "should_trigger": true},
+    {"query": "Execute $contract-first-delivery-loop for the next schema-governed slice.", "should_trigger": true},
+    {"query": "Use $contract-first-delivery-loop to finish the selected vertical slice and report evidence.", "should_trigger": true},
+    {"query": "Continue the development plan.", "should_trigger": false},
+    {"query": "Fix this untracked typo in README.md.", "should_trigger": false},
+    {"query": "Audit whether this repository has enough contract governance.", "should_trigger": false},
+    {"query": "Install a docs-first development methodology in this new project.", "should_trigger": false},
+    {"query": "Review this pull request but do not modify anything.", "should_trigger": false},
+    {"query": "Explain the difference between OpenAPI and AsyncAPI.", "should_trigger": false},
+    {"query": "Create a release and deploy it to production.", "should_trigger": false},
+    {"query": "Plan a security threat-modeling workshop.", "should_trigger": false},
+    {"query": "Refactor this module; there is no tracked work item.", "should_trigger": false},
+    {"query": "Generate a governance template for a new repository.", "should_trigger": false}
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "skill_name": "contract-first-delivery-loop",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use $contract-first-delivery-loop to continue the next tracked API task. The repo declares openapi.yaml canonical and the issue tracker authoritative.",
+      "expected_output": "Selects one unblocked tracked item, identifies the OpenAPI delta and consumers, implements one coherent slice, runs focused contract and implementation checks, and reconciles only the authoritative tracker."
+    },
+    {
+      "id": 2,
+      "prompt": "Use $contract-first-delivery-loop to implement the tracked database field rename while two deployed application versions must coexist.",
+      "expected_output": "Treats data and API effects as compatibility risks, preserves an independently valid intermediate state, requires an explicit migration strategy, and does not assume a destructive rename is safe."
+    },
+    {
+      "id": 3,
+      "prompt": "Use $contract-first-delivery-loop to fix the tracked internal calculation bug. No public contract changes and focused tests already exist.",
+      "expected_output": "Keeps the task internal, avoids unnecessary contract-document churn, runs focused tests, and closes with concise evidence."
+    },
+    {
+      "id": 4,
+      "prompt": "Use $contract-first-delivery-loop to continue. tasks.md says T12 is next, but the live issue marks T12 blocked and T13 ready; the repository does not declare which tracker is authoritative.",
+      "expected_output": "Does not choose by timestamp or convenience; reports the authority conflict and requests the smallest decision needed before implementation."
+    },
+    {
+      "id": 5,
+      "prompt": "Use $contract-first-delivery-loop for the tracked frontend copy change. The active AGENTS.md says UI changes should be modified but not inspected unless explicitly requested.",
+      "expected_output": "Applies the active repository instruction, makes only the requested change, skips browser or build inspection, and tells the user the change is ready to view."
+    },
+    {
+      "id": 6,
+      "prompt": "Use $contract-first-delivery-loop to remove a published response field. There is no versioning or consumer migration decision.",
+      "expected_output": "Recognizes a breaking published-contract change and stops before implementation to obtain a versioning, migration, or explicit acceptance decision."
+    },
+    {
+      "id": 7,
+      "prompt": "Use $contract-first-delivery-loop to add a tracked CLI filter. Deployment, canary, production monitoring, and security architecture are not in scope.",
+      "expected_output": "Validates CLI arguments, exit behavior, and output compatibility without expanding the task into release, runtime, or security programs."
+    },
+    {
+      "id": 8,
+      "prompt": "Use $contract-first-delivery-loop to implement a tracked permission-denied error mapping. The project already defines the permission action and error code.",
+      "expected_output": "Uses the existing permission and error contracts, tests allowed and denied behavior, and avoids introducing unrelated threat modeling or security-delivery work."
+    }
+  ]
+}

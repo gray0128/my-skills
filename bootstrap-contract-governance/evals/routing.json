@@ -1,0 +1,26 @@
+{
+  "skill_name": "bootstrap-contract-governance",
+  "policy": "explicit-invocation-only",
+  "queries": [
+    {"query": "Use $bootstrap-contract-governance to install a minimal governance loop.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to migrate our existing docs-first controls.", "should_trigger": true},
+    {"query": "Apply $bootstrap-contract-governance without duplicating GitHub Issues.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to declare canonical contract sources.", "should_trigger": true},
+    {"query": "Run $bootstrap-contract-governance for this new repository.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to add a lightweight project control loop.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to migrate our tracker and contract indexes safely.", "should_trigger": true},
+    {"query": "With $bootstrap-contract-governance, formalize verification rules only.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to seed real governance state.", "should_trigger": true},
+    {"query": "Use $bootstrap-contract-governance to adapt the method to this monorepo.", "should_trigger": true},
+    {"query": "Continue the next development task.", "should_trigger": false},
+    {"query": "Audit our governance and do not edit files.", "should_trigger": false},
+    {"query": "Fix issue 42 and open a pull request.", "should_trigger": false},
+    {"query": "Review the OpenAPI change for breaking behavior.", "should_trigger": false},
+    {"query": "Create a release and deploy it.", "should_trigger": false},
+    {"query": "Write a threat model for the authentication service.", "should_trigger": false},
+    {"query": "Explain contract-first development.", "should_trigger": false},
+    {"query": "Update the next task status after tests pass.", "should_trigger": false},
+    {"query": "Inspect this UI prototype in Chrome.", "should_trigger": false},
+    {"query": "Refactor this internal function.", "should_trigger": false}
+  ]
+}

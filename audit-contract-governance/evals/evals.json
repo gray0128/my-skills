@@ -1,0 +1,35 @@
+{
+  "skill_name": "audit-contract-governance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use $audit-contract-governance to review this repository governance. Do not modify anything.",
+      "expected_output": "Performs only read operations, leads with a supported conclusion, cites exact repository evidence, prioritizes gaps, and confirms no mutation occurred."
+    },
+    {
+      "id": 2,
+      "prompt": "Use $audit-contract-governance. tasks.md says T8 is active, while the declared live issue tracker says T8 is blocked.",
+      "expected_output": "Treats the declared live tracker as work-status authority, identifies duplicated stale status as a concrete finding, and does not update either source."
+    },
+    {
+      "id": 3,
+      "prompt": "Use $audit-contract-governance on a service with openapi.yaml but no implementation conformance or breaking-change checks.",
+      "expected_output": "Recognizes structured contract maturity without overstating executability, reports the missing gates proportionately, and recommends the smallest relevant improvement."
+    },
+    {
+      "id": 4,
+      "prompt": "Use $audit-contract-governance on a small internal library with no API, deployment, or runtime service.",
+      "expected_output": "Audits only relevant library interfaces, tracking, and tests without penalizing the project for absent API, release, security, or runtime programs."
+    },
+    {
+      "id": 5,
+      "prompt": "Use $audit-contract-governance to audit and then fix every governance gap you find.",
+      "expected_output": "Completes a read-only audit, separates remediation as a later authorized bootstrap task, and makes no repository or external changes."
+    },
+    {
+      "id": 6,
+      "prompt": "Use $audit-contract-governance, but the repository declares an external task board authoritative and it is inaccessible.",
+      "expected_output": "Narrows conclusions, identifies the inaccessible authority as an evidence limitation, avoids claiming the tracker is missing, and does not infer current task state."
+    }
+  ]
+}
