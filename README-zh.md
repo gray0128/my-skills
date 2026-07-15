@@ -13,6 +13,7 @@
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
 | [contract-first-dev-loop](./contract-first-dev-loop/) | 契约优先、文档驱动的开发与治理一体化闭环 |
 | [issue-handler](./issue-handler/) | 通用的 Issue 到 PR 工作流，包含方案评论及 Agent/模型署名 |
+| [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
 | [pr-review](./pr-review/) | 基于证据的 GitHub PR 评审工作流，绑定当前 HEAD SHA |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
 
@@ -85,6 +86,21 @@ cp -R /tmp/my-skills/x-com-post ~/.grok/skills/
 chmod +x ~/.grok/skills/x-com-post/scripts/preflight.sh
 ```
 
+安装 `multi-agent-cli-dispatch`：
+
+```bash
+mkdir -p ~/.grok/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+cp -R /tmp/my-skills/multi-agent-cli-dispatch ~/.grok/skills/
+```
+
+如需覆盖默认模型配置（本地 `agents.toml` 不会被仓库默认文件覆盖；skill 自带 `.gitignore` 忽略该文件）：
+
+```bash
+cp ~/.grok/skills/multi-agent-cli-dispatch/agents.default.toml \
+   ~/.grok/skills/multi-agent-cli-dispatch/agents.toml
+```
+
 ## 使用
 
 安装 `x-com-post` 后，在 Grok 中调用：
@@ -92,8 +108,28 @@ chmod +x ~/.grok/skills/x-com-post/scripts/preflight.sh
 - 斜杠命令：`/x-com-post`
 - 自然语言："发推"、"post on x.com"、"获取推文"
 
+安装 `multi-agent-cli-dispatch` 后，在 Grok 中调用：
+
+- 斜杠命令：`/multi-agent-cli-dispatch <任务>`
+- 或直接运行 dispatcher：
+
+```bash
+python3 ~/.grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+  --workspace "$(pwd)" \
+  --task '你的任务内容'
+```
+
+支持的 CLI：`claude`、`grok`、`reasonix`、`codebuddy`、`agy`（需在 `PATH` 中可用）。
+
 ## 依赖
+
+### `x-com-post`
 
 - [agent-browser](https://github.com/vercel-labs/agent-browser) CLI
 - 已在目标用户配置中登录 X.com 的 Google Chrome
 - macOS（预检脚本会检查 `~/Library/Application Support/Google/Chrome` 中的 Chrome Cookie）
+
+### `multi-agent-cli-dispatch`
+
+- Python 3
+- `PATH` 中至少一个：`claude`、`grok`、`reasonix`、`codebuddy`、`agy`

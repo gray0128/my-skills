@@ -13,6 +13,7 @@ Personal agent skills.
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
 | [contract-first-dev-loop](./contract-first-dev-loop/) | Combined contract-first, docs-driven development and governance loop |
 | [issue-handler](./issue-handler/) | Generic issue-to-PR workflow with plan comments and agent/model attribution |
+| [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
 
@@ -85,6 +86,21 @@ cp -R /tmp/my-skills/x-com-post ~/.grok/skills/
 chmod +x ~/.grok/skills/x-com-post/scripts/preflight.sh
 ```
 
+For `multi-agent-cli-dispatch`:
+
+```bash
+mkdir -p ~/.grok/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+cp -R /tmp/my-skills/multi-agent-cli-dispatch ~/.grok/skills/
+```
+
+Optional model overrides (do not commit local overrides if you keep them in-repo elsewhere):
+
+```bash
+cp ~/.grok/skills/multi-agent-cli-dispatch/agents.default.toml \
+   ~/.grok/skills/multi-agent-cli-dispatch/agents.toml
+```
+
 ## Usage
 
 After installing `x-com-post`, invoke in Grok:
@@ -92,8 +108,28 @@ After installing `x-com-post`, invoke in Grok:
 - Slash command: `/x-com-post`
 - Natural language: "发推", "post on x.com", "获取推文"
 
+After installing `multi-agent-cli-dispatch`, invoke in Grok:
+
+- Slash command: `/multi-agent-cli-dispatch <task>`
+- Or run the dispatcher directly:
+
+```bash
+python3 ~/.grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+  --workspace "$(pwd)" \
+  --task 'your task here'
+```
+
+Supported CLIs: `claude`, `grok`, `reasonix`, `codebuddy`, `agy` (must be on `PATH`).
+
 ## Requirements
+
+### `x-com-post`
 
 - [agent-browser](https://github.com/vercel-labs/agent-browser) CLI
 - Google Chrome with an X.com login in the target profile
 - macOS (preflight script checks Chrome cookies under `~/Library/Application Support/Google/Chrome`)
+
+### `multi-agent-cli-dispatch`
+
+- Python 3
+- One or more of: `claude`, `grok`, `reasonix`, `codebuddy`, `agy` on `PATH`

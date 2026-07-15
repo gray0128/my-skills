@@ -1,0 +1,264 @@
+# Multi-agent CLI dispatch configuration.
+# Copy to agents.toml in the same directory to override defaults.
+
+[defaults]
+timeout_seconds = 600
+log_dir = ""  # empty = <skill>/runs/<timestamp>/
+stop_on_first_failure = false
+apply_task_prefix = true
+require_task_hints = true
+min_body_chars = 20
+task_prefix = """请直接完成下面的用户任务，不要跑题，不要解释 CLI 参数或工具用法。
+如果任务要求使用某个 skill，按任务说明执行。
+用户任务：
+"""
+general_success_patterns = []
+# Keep only strong process/CLI failure signals. Avoid bare "error:" / "错误："
+# which false-positive on code-review bodies discussing error handling.
+general_failure_patterns = [
+  "RESOURCE_EXHAUSTED",
+  "binary not found",
+  "command not found",
+  "No such file or directory",
+]
+
+# When a task involves CNB/GitHub user-visible submissions, append a per-agent
+# footer instruction using each agent's `content_footer` value.
+[attribution]
+enabled = true
+auto_detect = true
+task_patterns = [
+  "cnb",
+  "github",
+  "cnb.cool",
+  "github.com",
+  "pulls/",
+  "issues/",
+  "pull request",
+  "post-pull-review",
+  "post-pull-comment",
+  "post-issue-comment",
+  "gh pr",
+  "gh issue",
+]
+instruction = """如需向 CNB/GitHub 提交任何用户可见内容（评论、评审、Issue/PR 说明等），请在内容最后一行附上 agent/model 标记。
+agent 名与 model 名必须与下面配置完全一致；标签大小写（Agent/agent、Model/model）和中西文逗号可自由，但值不可改写：
+{content_footer}"""
+
+# For code-quality inspection/report tasks, ask each agent to write its report
+# to a stable per-agent directory. PR review tasks are excluded because they
+# already have their own platform submission workflow.
+[report_output]
+enabled = true
+base_dir = "docs/评审"
+report_filename = "report.md"
+task_patterns = [
+  "代码质量",
+  "质量检查",
+  "质量审查",
+  "代码审查",
+  "代码检查",
+  "静态检查",
+  "静态分析",
+  "安全检查",
+  "漏洞检查",
+  "技术债",
+  "坏味道",
+  "code quality",
+  "quality check",
+  "quality review",
+  "static analysis",
+  "lint\\b",
+]
+exclude_task_patterns = [
+  "cnb-pr-review",
+  "post-pull-review",
+  "pull request review",
+  "pull request",
+  "pulls/",
+  "审核\\s*PR",
+  "PR\\s*审核",
+  "review\\s+PR",
+  "PR\\s+review",
+]
+instruction = """本任务需要产出代码质量检查报告。
+请将最终报告写入以下 Markdown 文件，并确保目录存在：
+{report_file}
+
+报告中请包含：结论摘要、主要问题、风险等级、证据位置、建议修复方向。
+最终回复只需简要说明报告已写入该路径。"""
+
+[agents.claude]
+enabled = true
+binary = "claude"
+model = "claude-opus-4-8[1m]"
+# content_footer.model is the attribution label used on CNB/GitHub, not necessarily
+# the CLI --model id (proxy / gateway model name may differ).
+content_footer = "agent：claudecode,model:minimax-m3"
+model_flag_style = "space"
+args_before_task = ["-p", "--dangerously-skip-permissions"]
+timeout_seconds = 600
+success_patterns = []
+failure_patterns = []
+
+[agents.grok]
+enabled = true
+binary = "grok"
+model = "grok-4.5" # grok4.5(high)
+model_flag = "-m"
+model_flag_style = "space"
+content_footer = "agent：grok,model:grok4.5(high)"
+args_before_task = [
+  "--effort",
+  "high",
+  "--permission-mode",
+  "bypassPermissions",
+  "--cwd",
+  "{workspace}",
+  "-p",
+]
+timeout_seconds = 600
+success_patterns = []
+failure_patterns = []
+
+[agents.reasonix]
+enabled = true
+binary = "reasonix"
+subcommand = "run"
+model = "deepseek-v4-pro"
+content_footer = "agent：reasonix,model:deepseek-v4-pro"
+model_flag_style = "space"
+args_before_task = ["--dir", "{workspace}"]
+timeout_seconds = 600
+success_patterns = []
+failure_patterns = ["bubbletea: could not open TTY"]
+
+[agents.codebuddy]
+enabled = true
+binary = "codebuddy"
+model = "hy3"
+content_footer = "agent：codebuddy,model:HY3"
+model_flag_style = "space"
+args_before_task = ["-p", "--dangerously-skip-permissions"]
+timeout_seconds = 600
+success_patterns = []
+failure_patterns = []
+
+[agents.agy]
+enabled = true
+binary = "agy"
+model = "Gemini 3.5 Flash (High)"
+content_footer = "agent：antigravity,model:gemini-3.5-flash"
+model_flag_style = "equals"
+# agy ships a builtin antigravity_guide skill that derails when it sees CLI flags
+# such as --add-dir in the invocation context. Bind workspace only for repo tasks.
+args_before_task = [
+  "--print",
+]
+workspace_args = [
+  "--add-dir",
+  "{workspace}",
+]
+workspace_bind_patterns = [
+  "pr\\b",
+  "pull request",
+  "issue",
+  "cnb",
+  "github",
+  "代码",
+  "修复",
+  "实现",
+  "重构",
+  "skill",
+  "仓库",
+  "commit",
+  "branch",
+  "merge",
+  "审核",
+  "测试",
+  "build",
+  "ci\\b",
+  "\\.tsx?",
+  "\\.py",
+  "\\.md",
+]
+workspace_bind_exclude_patterns = [
+  "使用\\s*skill",
+  "use\\s+skill",
+  "skill\\s*[\"'“”]",
+  "cnb-pr-review",
+  "post-pull-review",
+  "post-pull-comment",
+  "pulls/",
+  "审核\\s*PR",
+  "PR\\s*审核",
+  "review\\s+PR",
+  "PR\\s+review",
+]
+retry_on_derailment = true
+retry_skip_task_patterns = [
+  "使用\\s*skill",
+  "use\\s+skill",
+  "skill\\s*[\"'“”]",
+  "cnb",
+  "github",
+  "pull request",
+  "pulls/",
+  "issues/",
+  "审核\\s*PR",
+]
+retry_args_before_task = [
+  "--print",
+]
+task_prefix = """请只执行下面的用户任务，不要解释命令行参数或工具用法。"""
+retry_task_prefix = """请只执行下面的用户任务本身，不要解释命令行参数或工具用法。"""
+timeout_seconds = 600
+require_task_hints = true
+min_body_chars = 40
+success_patterns = []
+failure_patterns = [
+  "Would you like to authorize merging",
+  "authorize merging PR",
+  "workflow_state_report",
+  "The `--dangerously-skip-permissions` flag",
+  "Recommended Next Step",
+  "How can I help you with your project",
+  "I am ready to pair program",
+  "I am currently running on",
+  "I am running on **Gemini",
+  "What It Does",
+  "Associated Risks",
+  "Please select one of the options",
+  "I received the request `--new-project`",
+  "npm run check",
+  "workspace integrity",
+  "I will list the contents of the workspace",
+  "在 **Antigravity CLI (`agy`)** 中，`--add-dir`",
+  "In the **Antigravity CLI",
+  "Antigravity CLI (`agy`)",
+  "antigravity_guide",
+  "Antigravity Guide",
+  "I will view the Antigravity Guide",
+  "What is `--print-timeout`",
+  "What is `--add-dir`",
+  "`--add-dir` flag",
+  "`--print-timeout` flag",
+  "由于您要求不使用任何工具",
+  "无法访问或获取该 PR",
+  "没有 `cnb-pr-review`",
+  "无法对该 PR 进行审核",
+  "无法给出具体的评审结论",
+  "Summary of Work",
+  "Summary of Work Done",
+  "Summary of Changes",
+  "printTimeout",
+  "尚未设定活动工作空间",
+]
+
+# Optional external validation. Enable only when the user task explicitly
+# requires proof of a CNB side effect, or pass --validate-cnb at runtime.
+[cnb_validation]
+enabled = false
+repo = ""
+pr_number = 0
+required_agent_markers = []
