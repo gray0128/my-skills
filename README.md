@@ -1,5 +1,7 @@
 # my-skills
 
+[English](./README.md) | [简体中文](./README-zh.md)
+
 Personal agent skills.
 
 ## Skills
