@@ -16,6 +16,25 @@ Personal agent skills.
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
 
+## Evolution of the contract-first skills
+
+`contract-first-dev-loop` is the original all-in-one skill. It combines two responsibilities in one workflow: installing or formalizing project governance and executing the next tracked development slice.
+
+The other three skills are an iterative upgrade that separates this broad workflow by user intent and mutation boundary:
+
+| Skill | Role in the upgraded model | Repository changes |
+|-------|----------------------------|--------------------|
+| `audit-contract-governance` | Assess whether contracts, trackers, instructions, and verification gates are coherent; report evidence and gaps | Read-only |
+| `bootstrap-contract-governance` | Install, migrate, or repair the smallest useful governance control surface | Governance artifacts only |
+| `contract-first-delivery-loop` | Deliver one tracked implementation outcome under an existing governance system | In-scope product, contract, test, and tracker changes |
+
+This is a specialization, not a mandatory three-step pipeline. A common adoption path is **audit → bootstrap → delivery**, but each skill can be invoked independently when its preconditions already hold.
+
+- Keep using `contract-first-dev-loop` when a compact, general-purpose entry point is more useful than strict mode separation.
+- Prefer the upgraded skills when you need clearer scope, smaller working context, explicit write authority, or safer automation.
+- Use `audit-contract-governance` for diagnosis only; move to `bootstrap-contract-governance` explicitly if the reported gaps should be fixed.
+- Use `contract-first-delivery-loop` only after authoritative contracts and work tracking already exist.
+
 ## Install
 
 Clone this repository and copy the skill you need into the relevant agent skills directory.

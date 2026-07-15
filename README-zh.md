@@ -16,6 +16,25 @@
 | [pr-review](./pr-review/) | 基于证据的 GitHub PR 评审工作流，绑定当前 HEAD SHA |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
 
+## 契约优先 skills 的迭代关系
+
+`contract-first-dev-loop` 是最初的一体化 skill，在一个工作流中同时承担两类职责：安装或规范化项目治理体系，以及执行下一个已跟踪的开发切片。
+
+其余三个 skill 是在此基础上的迭代升级，按照用户意图和修改权限边界拆分原有宽泛工作流：
+
+| Skill | 在升级模型中的职责 | 对仓库的修改范围 |
+|-------|--------------------|------------------|
+| `audit-contract-governance` | 评估契约、跟踪器、指令和验证门禁是否一致，输出证据与缺口 | 只读 |
+| `bootstrap-contract-governance` | 安装、迁移或修复最小可用的治理控制面 | 仅治理制品 |
+| `contract-first-delivery-loop` | 在既有治理体系下交付一个已跟踪的实现成果 | 范围内的产品代码、契约、测试和跟踪器变更 |
+
+这种升级是职责专业化，并不要求每次都依次运行三个 skill。常见的采用路径是 **审计 → 治理引导 → 交付**，但只要前置条件已经满足，每个 skill 都可以独立调用。
+
+- 当紧凑、通用的统一入口比严格的模式分离更重要时，可以继续使用 `contract-first-dev-loop`。
+- 需要更清晰的范围、更小的工作上下文、明确的写入权限或更安全的自动化时，优先使用升级后的三个 skill。
+- `audit-contract-governance` 只负责诊断；若要修复审计发现的缺口，应明确切换到 `bootstrap-contract-governance`。
+- 只有在权威契约和工作跟踪已经存在时，才使用 `contract-first-delivery-loop`。
+
 ## 安装
 
 克隆本仓库，将所需 skill 复制到对应 Agent 的 skills 目录。
