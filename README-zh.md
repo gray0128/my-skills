@@ -33,6 +33,7 @@
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
+| [fetch-device-data](./fetch-device-data/) | 按 HTTP 接口拉取设备非信号时序和信号波形：确认 base URL、设备、时间范围和 token；数据项可指定或先查再选；信号为采集时刻 → 元数据 → 分页原始点 |
 
 ## 契约治理 skills
 

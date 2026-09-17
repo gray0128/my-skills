@@ -33,6 +33,7 @@ Personal agent skills.
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
+| [fetch-device-data](./fetch-device-data/) | Fetch device non-signal time series and signal waveforms over HTTP: confirm base URL, device, time range, and token; list or select KPIs; signal path is timestamp → metadata → paged raw samples |
 
 ## Contract-governance skills
 
