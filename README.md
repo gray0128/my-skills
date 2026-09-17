@@ -8,6 +8,7 @@ Personal agent skills.
 
 | Skill | Description |
 |-------|-------------|
+| [analyze-review-conclusion](./analyze-review-conclusion/) | Turn review conclusions into adoption decisions verified against real project state, and generate `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
 | [cnb-issue-create](./cnb-issue-create/) | Create well-scoped CNB Issues from requirements, bug reports, TAPD links, or planning notes, with duplicate checks and template-based bodies |

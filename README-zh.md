@@ -8,6 +8,7 @@
 
 | Skill | 说明 |
 |-------|------|
+| [analyze-review-conclusion](./analyze-review-conclusion/) | 把评审结论逐条对照项目真实状态核实，产出采纳/不采纳/需人工决策结论与 `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | 对仓库的契约治理体系执行只读、基于证据的审计 |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | 在现有仓库中安装或迁移最小化契约治理体系 |
 | [cnb-issue-create](./cnb-issue-create/) | 从需求、缺陷报告、TAPD 链接或规划笔记创建范围清晰的 CNB Issue，含查重与模板化正文 |

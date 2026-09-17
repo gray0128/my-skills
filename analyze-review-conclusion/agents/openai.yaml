@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Review Conclusion"
+  short_description: "Cross-check review findings with project state"
+  default_prompt: "Use $analyze-review-conclusion to analyze review conclusions against real project progress and generate 评审报告分析采纳结论.md."
