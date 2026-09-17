@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB Issue Plan Review"
+  short_description: "Review CNB Issue implementation plans"
+  default_prompt: "Use $cnb-issue-plan-review to inspect this CNB Issue plan and post an advisory review comment."

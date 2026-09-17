@@ -10,11 +10,21 @@ Personal agent skills.
 |-------|-------------|
 | [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
+| [cnb-issue-create](./cnb-issue-create/) | Create well-scoped CNB Issues from requirements, bug reports, TAPD links, or planning notes, with duplicate checks and template-based bodies |
+| [cnb-issue-handle](./cnb-issue-handle/) | Take a CNB Issue from intake to PR: plan comment, focused implementation, verification, and PR creation |
+| [cnb-issue-plan-review](./cnb-issue-plan-review/) | Review a CNB Issue implementation plan before coding: scope, out-of-scope, acceptance criteria, docs/contract impact, verification |
+| [cnb-pr-address-review](./cnb-pr-address-review/) | Address CNB PR review feedback: read live reviews, apply actionable fixes, push follow-up commits, request re-review |
+| [cnb-pr-fix-ci](./cnb-pr-fix-ci/) | Diagnose and fix failing CNB PR checks or pipelines with the smallest safe change |
+| [cnb-pr-merge](./cnb-pr-merge/) | Merge a CNB PR only after authorization, head-SHA review evidence, green checks, and complete closeout |
+| [cnb-pr-review](./cnb-pr-review/) | Review CNB PRs with Issue traceability, exact head-SHA binding, and formal Pull Review submission |
+| [cnb-workflow-continue](./cnb-workflow-continue/) | Inspect CNB Issue/PR workflow state and route to the next safe step |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
 | [issue-handler](./issue-handler/) | Generic issue-to-PR workflow with plan comments and agent/model attribution |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
 | [pr-review](./pr-review/) | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
+
+`cnb-*` skills target the CNB (cnb.cool) platform and require the `cnb` CLI.
 
 ## Contract-governance skills
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB Issue Create"
+  short_description: "Create well-scoped CNB issues"
+  default_prompt: "Use $cnb-issue-create to draft and create a CNB Issue from this requirement."

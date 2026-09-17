@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB Issue Handle"
+  short_description: "Handle CNB issues through PR creation"
+  default_prompt: "Use $cnb-issue-handle to process this CNB Issue, post a plan first, implement it, and open a PR."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB PR Review"
+  short_description: "Review CNB PRs with formal evidence"
+  default_prompt: "Use $cnb-pr-review to inspect this CNB PR, review the linked Issue and diff, then submit a formal review."

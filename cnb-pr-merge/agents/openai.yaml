@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB PR Merge"
+  short_description: "Merge CNB PRs, close issues, and clean branches"
+  default_prompt: "Use $cnb-pr-merge to verify readiness, merge this CNB PR after explicit authorization, close linked issues, clean source branches, and complete closeout checks."

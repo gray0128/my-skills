@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB Workflow Continue"
+  short_description: "Inspect CNB Issue/PR workflow state"
+  default_prompt: "Use $cnb-workflow-continue to inspect the CNB Issue or PR state and choose the next workflow step."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB PR Fix CI"
+  short_description: "Diagnose and fix CNB PR CI failures"
+  default_prompt: "Use $cnb-pr-fix-ci to inspect failing CNB PR checks, diagnose logs, apply the smallest fix, and push updates."

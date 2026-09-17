@@ -1,0 +1,4 @@
+interface:
+  display_name: "CNB PR Address Review"
+  short_description: "Address CNB PR review feedback"
+  default_prompt: "Use $cnb-pr-address-review to read PR review feedback, apply approved fixes, push updates, and request a fresh review."

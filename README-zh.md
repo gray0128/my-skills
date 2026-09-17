@@ -10,11 +10,21 @@
 |-------|------|
 | [audit-contract-governance](./audit-contract-governance/) | 对仓库的契约治理体系执行只读、基于证据的审计 |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | 在现有仓库中安装或迁移最小化契约治理体系 |
+| [cnb-issue-create](./cnb-issue-create/) | 从需求、缺陷报告、TAPD 链接或规划笔记创建范围清晰的 CNB Issue，含查重与模板化正文 |
+| [cnb-issue-handle](./cnb-issue-handle/) | 将 CNB Issue 推进到 PR：先发实施计划评论，再完成聚焦改动、验证与 PR 创建 |
+| [cnb-issue-plan-review](./cnb-issue-plan-review/) | 在编码前评审 CNB Issue 的实施计划：范围、排除项、验收标准、文档与契约影响、验证方式 |
+| [cnb-pr-address-review](./cnb-pr-address-review/) | 处理 CNB PR 评审反馈：读取实时评审、落实可执行修复、推送后续提交并请求复审 |
+| [cnb-pr-fix-ci](./cnb-pr-fix-ci/) | 以最小安全改动诊断并修复失败的 CNB PR 检查或流水线 |
+| [cnb-pr-merge](./cnb-pr-merge/) | 仅在获得授权、评审绑定当前 head、检查全绿且收尾完成后合并 CNB PR |
+| [cnb-pr-review](./cnb-pr-review/) | 带 Issue 追溯、精确绑定 head SHA、正式提交 CNB Pull Review 的评审流程 |
+| [cnb-workflow-continue](./cnb-workflow-continue/) | 检查 CNB Issue/PR 工作流状态并路由到下一个安全步骤 |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
 | [issue-handler](./issue-handler/) | 通用的 Issue 到 PR 工作流，包含方案评论及 Agent/模型署名 |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
 | [pr-review](./pr-review/) | 基于证据的 GitHub PR 评审工作流，绑定当前 HEAD SHA |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
+
+`cnb-*` 系列技能面向 CNB（cnb.cool）平台，需要 `cnb` CLI。
 
 ## 契约治理 skills
 
