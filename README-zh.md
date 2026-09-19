@@ -30,6 +30,7 @@
 | [analyze-review-conclusion](./analyze-review-conclusion/) | 把评审结论逐条对照项目真实状态核实，产出采纳/不采纳/需人工决策结论与 `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | 对仓库的契约治理体系执行只读、基于证据的审计 |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | 在现有仓库中安装或迁移最小化契约治理体系 |
+| [code-review](./code-review/) | 严苛可维护性审查：抽象质量、巨型文件、意大利面条式分支增长；Grok Build `/code-review`（源自 Cursor thermo-nuclear） |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
@@ -91,6 +92,17 @@ do
 done
 ```
 
+安装 `code-review`：
+
+```bash
+mkdir -p ~/.agents/skills ~/.grok/skills ~/.claude/skills ~/.codex/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+cp -R /tmp/my-skills/code-review ~/.agents/skills/
+ln -s ~/.agents/skills/code-review ~/.grok/skills/code-review
+ln -s ~/.agents/skills/code-review ~/.claude/skills/code-review
+ln -s ~/.agents/skills/code-review ~/.codex/skills/code-review
+```
+
 安装 `x-com-post`：
 
 ```bash
@@ -134,6 +146,11 @@ python3 ~/.grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 ```
 
 支持的 CLI：`claude`、`grok`、`reasonix`、`codebuddy`、`agy`（需在 `PATH` 中可用）。
+
+安装 `code-review` 后调用：
+
+- 斜杠命令：`/code-review`
+- 推荐叠加：`/code-review 梳理一下这个 <TARGET> 的 skill，保持优雅的工程质量、良好的可维护性和极佳的用户体验。以重新定义问题为导向，运用第一性原理与MECE原则、量化思维，驱动开发与测试的系统性优化。`
 
 ## 依赖
 

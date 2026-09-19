@@ -30,6 +30,7 @@ Personal agent skills.
 | [analyze-review-conclusion](./analyze-review-conclusion/) | Turn review conclusions into adoption decisions verified against real project state, and generate `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
+| [code-review](./code-review/) | Strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth; Grok Build `/code-review` (Cursor thermo-nuclear origin) |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
@@ -91,6 +92,17 @@ do
 done
 ```
 
+For `code-review`:
+
+```bash
+mkdir -p ~/.agents/skills ~/.grok/skills ~/.claude/skills ~/.codex/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+cp -R /tmp/my-skills/code-review ~/.agents/skills/
+ln -s ~/.agents/skills/code-review ~/.grok/skills/code-review
+ln -s ~/.agents/skills/code-review ~/.claude/skills/code-review
+ln -s ~/.agents/skills/code-review ~/.codex/skills/code-review
+```
+
 For `x-com-post`:
 
 ```bash
@@ -134,6 +146,11 @@ python3 ~/.grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 ```
 
 Supported CLIs: `claude`, `grok`, `reasonix`, `codebuddy`, `agy` (must be on `PATH`).
+
+After installing `code-review`, invoke:
+
+- Slash command: `/code-review`
+- Example overlay: `/code-review 梳理一下这个 <TARGET> 的 skill，保持优雅的工程质量、良好的可维护性和极佳的用户体验。以重新定义问题为导向，运用第一性原理与MECE原则、量化思维，驱动开发与测试的系统性优化。`
 
 ## Requirements
 
