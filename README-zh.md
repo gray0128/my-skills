@@ -30,9 +30,11 @@
 | [analyze-review-conclusion](./analyze-review-conclusion/) | 把评审结论逐条对照项目真实状态核实，产出采纳/不采纳/需人工决策结论与 `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | 对仓库的契约治理体系执行只读、基于证据的审计 |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | 在现有仓库中安装或迁移最小化契约治理体系 |
+| [brutal-advisor](./brutal-advisor/) | 直言不讳的战略顾问与认知镜子：追根因与假设审计、盲区与机会成本、重定义问题、按优先级排序的行动方案 |
 | [code-review](./code-review/) | 严苛可维护性审查：抽象质量、巨型文件、意大利面条式分支增长；Grok Build `/code-review`（源自 Cursor thermo-nuclear） |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | 在既有契约约束下执行一个已跟踪、可独立验证的实现切片 |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | 将同一任务并行分发给多个编程 Agent CLI（`claude`、`grok`、`reasonix`、`codebuddy`、`agy`），并做超时、日志与结果分类 |
+| [world-class-designer](./world-class-designer/) | 世界级工作室水准的界面设计与打磨，避免通用 AI 味：随机种子发散、盲审截图评审闭环、减法打磨、人工重写文案 |
 | [x-com-post](./x-com-post/) | 通过 `agent-browser` 和 Chrome 用户配置读取并发布 X.com（Twitter）内容 |
 | [fetch-device-data](./fetch-device-data/) | 按 HTTP 接口拉取设备非信号时序和信号波形：确认 base URL、设备、时间范围和 token；数据项可指定或先查再选；信号为采集时刻 → 元数据 → 分页原始点 |
 
@@ -125,6 +127,16 @@ cp -R /tmp/my-skills/multi-agent-cli-dispatch ~/.grok/skills/
 ```bash
 cp ~/.grok/skills/multi-agent-cli-dispatch/agents.default.toml \
    ~/.grok/skills/multi-agent-cli-dispatch/agents.toml
+```
+
+安装 `brutal-advisor` 与 `world-class-designer`（单文件技能）：
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+for skill in brutal-advisor world-class-designer; do
+  cp -R "/tmp/my-skills/$skill" ~/.agents/skills/
+done
 ```
 
 ## 使用

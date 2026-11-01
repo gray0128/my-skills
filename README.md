@@ -30,9 +30,11 @@ Personal agent skills.
 | [analyze-review-conclusion](./analyze-review-conclusion/) | Turn review conclusions into adoption decisions verified against real project state, and generate `评审报告分析采纳结论.md` |
 | [audit-contract-governance](./audit-contract-governance/) | Read-only, evidence-based audit of a repository's contract-governance system |
 | [bootstrap-contract-governance](./bootstrap-contract-governance/) | Install or migrate a minimal contract-governance system in an existing repository |
+| [brutal-advisor](./brutal-advisor/) | Unfiltered strategic advisor and cognitive mirror: root-cause and assumption audits, blind spots and opportunity cost, problem reframing, prioritized action plan |
 | [code-review](./code-review/) | Strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth; Grok Build `/code-review` (Cursor thermo-nuclear origin) |
 | [contract-first-delivery-loop](./contract-first-delivery-loop/) | Execute one tracked, independently verifiable implementation slice under existing contracts |
 | [multi-agent-cli-dispatch](./multi-agent-cli-dispatch/) | Fan out one task to multiple coding-agent CLIs (`claude`, `grok`, `reasonix`, `codebuddy`, `agy`) with timeouts, logs, and result classification |
+| [world-class-designer](./world-class-designer/) | Studio-grade UI design and polish without generic AI slop: seeded divergence, blind screenshot critic loop, subtractive polish, hand-written copy |
 | [x-com-post](./x-com-post/) | Read and publish on X.com (Twitter) via `agent-browser` with your Chrome profile |
 | [fetch-device-data](./fetch-device-data/) | Fetch device non-signal time series and signal waveforms over HTTP: confirm base URL, device, time range, and token; list or select KPIs; signal path is timestamp → metadata → paged raw samples |
 
@@ -125,6 +127,16 @@ Optional model overrides (do not commit local overrides if you keep them in-repo
 ```bash
 cp ~/.grok/skills/multi-agent-cli-dispatch/agents.default.toml \
    ~/.grok/skills/multi-agent-cli-dispatch/agents.toml
+```
+
+For `brutal-advisor` and `world-class-designer` (single-file skills):
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/gray0128/my-skills.git /tmp/my-skills
+for skill in brutal-advisor world-class-designer; do
+  cp -R "/tmp/my-skills/$skill" ~/.agents/skills/
+done
 ```
 
 ## Usage
