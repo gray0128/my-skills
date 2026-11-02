@@ -6,22 +6,12 @@
 
 ## Skills
 
-### 平台工作流技能
 
 | Skill | 平台 | 说明 |
 |-------|------|------|
-| [cnb-issue-create](./cnb-issue-create/) | CNB | 从需求、缺陷报告、TAPD 链接或规划笔记创建范围清晰的 CNB Issue，含查重与模板化正文 |
-| [cnb-issue-handle](./cnb-issue-handle/) | CNB | 将 CNB Issue 推进到 PR：先发实施计划评论，再完成聚焦改动、验证与 PR 创建 |
-| [cnb-issue-plan-review](./cnb-issue-plan-review/) | CNB | 在编码前评审 CNB Issue 的实施计划：范围、排除项、验收标准、文档与契约影响、验证方式 |
-| [cnb-pr-review](./cnb-pr-review/) | CNB | 带 Issue 追溯、精确绑定 head SHA、正式提交 CNB Pull Review 的评审流程 |
-| [cnb-pr-address-review](./cnb-pr-address-review/) | CNB | 处理 CNB PR 评审反馈：读取实时评审、落实可执行修复、推送后续提交并请求复审 |
-| [cnb-pr-fix-ci](./cnb-pr-fix-ci/) | CNB | 以最小安全改动诊断并修复失败的 CNB PR 检查或流水线 |
-| [cnb-pr-merge](./cnb-pr-merge/) | CNB | 仅在获得授权、评审绑定当前 head、检查全绿且收尾完成后合并 CNB PR |
-| [cnb-workflow-continue](./cnb-workflow-continue/) | CNB | 检查 CNB Issue/PR 工作流状态并路由到下一个安全步骤 |
 | [issue-handler](./issue-handler/) | GitHub | 通用的 Issue 到 PR 工作流，包含方案评论及 Agent/模型署名 |
 | [pr-review](./pr-review/) | GitHub | 基于证据的 GitHub PR 评审工作流，绑定当前 HEAD SHA |
 
-`cnb-*` 系列技能面向 CNB（cnb.cool）平台，需要 `cnb` CLI。
 
 ### 通用技能
 

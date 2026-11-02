@@ -6,22 +6,12 @@ Personal agent skills.
 
 ## Skills
 
-### Platform workflow skills
 
 | Skill | Platform | Description |
 |-------|----------|-------------|
-| [cnb-issue-create](./cnb-issue-create/) | CNB | Create well-scoped CNB Issues from requirements, bug reports, TAPD links, or planning notes, with duplicate checks and template-based bodies |
-| [cnb-issue-handle](./cnb-issue-handle/) | CNB | Take a CNB Issue from intake to PR: plan comment, focused implementation, verification, and PR creation |
-| [cnb-issue-plan-review](./cnb-issue-plan-review/) | CNB | Review a CNB Issue implementation plan before coding: scope, out-of-scope, acceptance criteria, docs/contract impact, verification |
-| [cnb-pr-review](./cnb-pr-review/) | CNB | Review CNB PRs with Issue traceability, exact head-SHA binding, and formal Pull Review submission |
-| [cnb-pr-address-review](./cnb-pr-address-review/) | CNB | Address CNB PR review feedback: read live reviews, apply actionable fixes, push follow-up commits, request re-review |
-| [cnb-pr-fix-ci](./cnb-pr-fix-ci/) | CNB | Diagnose and fix failing CNB PR checks or pipelines with the smallest safe change |
-| [cnb-pr-merge](./cnb-pr-merge/) | CNB | Merge a CNB PR only after authorization, head-SHA review evidence, green checks, and complete closeout |
-| [cnb-workflow-continue](./cnb-workflow-continue/) | CNB | Inspect CNB Issue/PR workflow state and route to the next safe step |
 | [issue-handler](./issue-handler/) | GitHub | Generic issue-to-PR workflow with plan comments and agent/model attribution |
 | [pr-review](./pr-review/) | GitHub | Evidence-bound GitHub PR review workflow with current-head SHA binding |
 
-`cnb-*` skills target the CNB (cnb.cool) platform and require the `cnb` CLI.
 
 ### General skills
 
