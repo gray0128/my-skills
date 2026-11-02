@@ -7,6 +7,8 @@ description: Dispatch one user-specified general task to multiple coding-agent C
 
 Use this skill to fan out **one user-specified task** to multiple coding-agent CLIs in parallel, then verify whether each CLI actually finished that task.
 
+All paths in this skill are relative to the skill directory (the one containing `SKILL.md`): run the commands below from that directory, or prepend its absolute path.
+
 Supported CLIs:
 
 - `claude`
@@ -52,8 +54,7 @@ Each agent block supports:
 Copy and customize models when needed:
 
 ```bash
-cp .grok/skills/multi-agent-cli-dispatch/agents.default.toml \
-   .grok/skills/multi-agent-cli-dispatch/agents.toml
+cp agents.default.toml agents.toml
 ```
 
 Read `references/cli-invocation.md` before changing command shapes.
@@ -68,7 +69,7 @@ Read `references/cli-invocation.md` before changing command shapes.
 6. Run the dispatcher:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --task '<user-task>'
 ```
@@ -82,7 +83,7 @@ python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 Run a subset:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --agents claude,codebuddy \
   --task '<user-task>'
@@ -91,7 +92,7 @@ python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 Override models for one run:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --model-overrides '{"claude":"claude-opus-4-8[1m]","agy":"Gemini 3.5 Flash (High)"}' \
   --task '<user-task>'
@@ -100,7 +101,7 @@ python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 Disable the default anti-derailment prefix:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --no-task-prefix \
   --task '<user-task>'
@@ -109,7 +110,7 @@ python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
 Force or disable CNB/GitHub attribution footers:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --force-attribution \
   --task '<user-task>'
@@ -152,7 +153,7 @@ Run external validation only when the user explicitly asks for it in the task or
 Example for a CNB PR review task that the user wrote explicitly:
 
 ```bash
-python3 .grok/skills/multi-agent-cli-dispatch/scripts/dispatch.py \
+python3 scripts/dispatch.py \
   --workspace "<absolute-workspace>" \
   --task '使用 skill "cnb-pr-review" 审核 PR https://cnb.cool/ifilfy/user-workbench/-/pulls/140' \
   --validate-cnb \

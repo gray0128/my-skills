@@ -21,9 +21,11 @@ allowed-tools: Bash(agent-browser:*)
 | **发布**推文 | `--profile "Profile N"` | **是**，必须 Cmd+Q |
 
 ```bash
-bash ~/.grok/skills/x-com-post/scripts/preflight.sh "Profile N" read   # 读取
-bash ~/.grok/skills/x-com-post/scripts/preflight.sh "Profile N" post     # 发帖
+bash scripts/preflight.sh "Profile N" read   # 读取
+bash scripts/preflight.sh "Profile N" post   # 发帖
 ```
+
+本文所有相对路径都以本技能目录（`SKILL.md` 所在目录）为基准：在终端执行前先 `cd` 到该目录，或把命令里的 `scripts/...` 换成本技能目录下的绝对路径。
 
 ---
 
@@ -72,7 +74,7 @@ agent-browser profiles
 确认目标 Profile 有 X cookie：
 
 ```bash
-bash ~/.grok/skills/x-com-post/scripts/preflight.sh "Profile N"
+bash scripts/preflight.sh "Profile N"
 ```
 
 ---

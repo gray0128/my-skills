@@ -32,7 +32,7 @@ Use this skill to turn review conclusions into a careful adoption decision. Do n
    - `已解决`: real issue existed but current code/docs/plan already addresses it.
    - `需人工决策`: valid tradeoff or scope/architecture/product decision cannot be settled from project evidence alone.
 7. Generate `评审报告分析采纳结论.md` from `assets/report-template.md`. Replace placeholders with concrete evidence and leave no unfinished marker text.
-8. Run `python3 skills/analyze-review-conclusion/scripts/validate_report.py <path/to/评审报告分析采纳结论.md>` and fix any reported structural gaps.
+8. Run `python3 scripts/validate_report.py <path/to/评审报告分析采纳结论.md>` from this skill's own directory (the script ships inside the skill, not in the target project) and fix any reported structural gaps.
 
 ## Decision Rules
 
