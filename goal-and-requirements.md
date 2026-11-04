@@ -18,7 +18,7 @@ tags: [skills, agent]
 
 ## Capabilities
 
-- 收纳彼此独立的 agent 技能，每个技能自带 `SKILL.md`（含 `name` 与 `description` frontmatter）以及可选的 `references/`、`assets/`、`scripts/`、`tests/`、`evals/`、`agents/`。技能正文是供宿主阅读的说明文档；`scripts/` 可以携带由宿主在运行技能时调用的辅助脚本（如批量调 CLI 的分发器、报告校验脚本），有测试时放在该技能的 `tests/` 下。
+- 收纳彼此独立的 agent 技能，每个技能自带 `SKILL.md`（含 `name` 与 `description` frontmatter）以及可选的 `references/`、`assets/`、`scripts/`、`tests/`、`evals/`、`agents/`。技能正文是供宿主阅读的说明文档；`scripts/` 可以携带由宿主在运行技能时调用的辅助脚本，有测试时放在该技能的 `tests/` 下。
 - 技能按主题归类，主题随技能增长而增减：新技能找不到合适归属时新建主题，而不是塞进一个不对的归类。
 - 每个技能可单独装到任一宿主，不必整包搬运。
 - 提供双语 README，说明目录结构、每个技能的职责与安装方式。
