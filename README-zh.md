@@ -11,6 +11,7 @@
 | [engineering/](./engineering/) | 判断方案、方向与决策，不改被审视的实现 |
 | [design/](./design/) | 设计不像机器生成的界面 |
 | [data/](./data/) | 按 HTTP 接口拉取业务数据 |
+| [docs/](./docs/) | 将多篇文档与配套资源构建并校验为可离线交付的文档成品 |
 
 分组只影响仓库组织方式：每个 skill 保留自己的目录名，因此安装 `engineering/brutal-advisor` 得到的技能名仍是 `brutal-advisor`。主题是开放集合——新技能找不到合适归属时，新建一个主题，而不是塞进一个不对的主题。
 
@@ -37,6 +38,12 @@
 | Skill | 说明 |
 |-------|------|
 | [fetch-device-data](./data/fetch-device-data/) | 按 HTTP 接口拉取设备非信号时序和信号波形：确认 base URL、设备与时间范围；数据项可用户指定或由 Agent 查目录获得（默认免 token）；信号为采集时刻 → 元数据 → 分页原始点 |
+
+### docs/
+
+| Skill | 说明 |
+|-------|------|
+| [single-file-docs-site](./docs/single-file-docs-site/) | 将多篇 Markdown 与本地图片打包为零依赖、可离线打开的三栏单页 HTML 文档站（含 `⌘K` 全文搜索、移动端抽屉、`--init` 初始化与 `--check` 一致性门禁） |
 
 ## 安装
 

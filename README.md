@@ -11,6 +11,7 @@ Personal agent skills, grouped into topic directories.
 | [engineering/](./engineering/) | Judging plans, direction, and decisions without changing the work under review |
 | [design/](./design/) | Designing interfaces that do not look machine-made |
 | [data/](./data/) | Fetching domain data over HTTP |
+| [docs/](./docs/) | Packaging and validating project documentation artifacts |
 
 Grouping is only a repository concern: each skill keeps its own directory name, so installing `engineering/brutal-advisor` yields a skill named `brutal-advisor`. Topics are open-ended — a new skill that fits none of them gets a new topic rather than a wrong one.
 
@@ -37,6 +38,12 @@ These skills produce a visual artifact rather than a judgement about existing wo
 | Skill | Description |
 |-------|-------------|
 | [fetch-device-data](./data/fetch-device-data/) | Fetch device non-signal time series and signal waveforms over HTTP: confirm base URL, device, and time range; look up or use given KPIs (no token by default); signal path is timestamp → metadata → paged raw samples |
+
+### docs/
+
+| Skill | Description |
+|-------|-------------|
+| [single-file-docs-site](./docs/single-file-docs-site/) | Bundle Markdown docs and local images into a zero-dependency, offline three-column single-file HTML site (`⌘K` search, mobile drawer, `--init` scaffolding, and `--check` consistency gate) |
 
 ## Install
 

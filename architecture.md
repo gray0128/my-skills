@@ -16,7 +16,7 @@ title: 仓库拓扑与不变量
 <topic>/<skill>/{references,assets,scripts,tests,evals,agents}/
 ```
 
-当前有三个主题：`engineering`、`design`、`data`（职责见各目录的 `SPEC.md`）。每个主题目录下只有技能子目录与自己的 `SPEC.md`，不放其他文件；技能目录才是安装单元。
+当前有四个主题：`engineering`、`design`、`data`、`docs`（职责见各目录的 `SPEC.md`）。每个主题目录下只有技能子目录与自己的 `SPEC.md`，不放其他文件；技能目录才是安装单元。
 
 主题是**开放的**，不是固定集合。当前三个只是此刻的现状，不是允许出现的全部。
 
@@ -53,5 +53,5 @@ title: 仓库拓扑与不变量
 
 - 产品意图与边界：`goal`。
 - 命名、安装、触发的机制约束：本文件。
-- 单个主题的职责与技能清单：该主题目录下的 `SPEC.md`（当前为 `engineering`、`design`、`data` 三份）。README 的技能表格派生自这些 `SPEC.md`，新增、删除或搬迁技能时两处同步，README 不是第二份权威。
+- 单个主题的职责与技能清单：该主题目录下的 `SPEC.md`（当前为 `engineering`、`design`、`data`、`docs` 四份）。README 的技能表格派生自这些 `SPEC.md`，新增、删除或搬迁技能时两处同步，README 不是第二份权威。
 - 添加或更新技能的操作步骤：`AGENTS.md`，只写步骤并链接本文件，不重复约束。
